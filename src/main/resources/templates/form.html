@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<style type="text/css">
+   .warn{color:red}
+</style>
+<form th:action="@{/Login}" th:object="${user}" method="post">
+    <div>
+        <div>
+        <p></p>
+            <span th:text="${user.name}"></span>
+            <span><input type="text" id="name" th:field="*{name}"/></span>
+        </div>
+        <div>
+            <span th:text="${user.pwd}"> </span>
+            <span><input type="text" th:field="*{pwd}"/></span>
+        </div>
+        <div>
+            <span>
+                <button type="submit">提交</button>
+            </span>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+ 

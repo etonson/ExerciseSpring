@@ -1,21 +1,23 @@
 package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.User;
 
+@RestController
 public class PostDemoController {
-    @GetMapping("/momo")
-    public ModelAndView mo() {
-        //实例化对象
-        User user=new User();
-        user.setName("r");
-        user.setPwd("");
-        //定义mvc中的视图模板
-        ModelAndView modelAndView=new ModelAndView("form");
-        //传递user实体对象给视图
-        modelAndView.addObject("user",user);
-        return modelAndView;
-    }
+	@PostMapping("/hello")
+	public ModelAndView mo(@RequestParam("name") String name,
+            @RequestParam("pwd") String pwd) {
+		User user = new User();
+		user.setName(name);
+		user.setPwd(pwd);
+		ModelAndView modelAndView = new ModelAndView("form");
+		modelAndView.addObject("user", user);
+		System.out.println("name"+name+"  pwd"+pwd);
+		return modelAndView;
+	}
 }

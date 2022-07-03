@@ -10,16 +10,12 @@ import com.example.demo.model.User;
  */
 @Controller
 public class MVCDemoController {
-    //映射URL地址
     @GetMapping("/login")
     public ModelAndView hello() {
-        //实例化对象
         User user=new User();
         user.setName("zhonghua");
         user.setPwd("zhonghua");
-        //定义mvc中的视图模板
         ModelAndView modelAndView=new ModelAndView("form");
-        //传递user实体对象给视图
         modelAndView.addObject("user",user);
         return modelAndView;
     }
